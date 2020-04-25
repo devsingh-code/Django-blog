@@ -25,7 +25,7 @@ SECRET_KEY = 'adfub=d5k9z)5-u5s(-2)35e7c-9j^o7x72tl!d34m2!t#&l=m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mydjangoblog1.herokuapp.com']
 
 
 # Application definition
