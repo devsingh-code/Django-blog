@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,8 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'adfub=d5k9z)5-u5s(-2)35e7c-9j^o7x72tl!d34m2!t#&l=m'
-
+#SECRET_KEY = 'adfub=d5k9z)5-u5s(-2)35e7c-9j^o7x72tl!d34m2!t#&l=m'
+SECRET_KEY=os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -149,3 +150,5 @@ AWS_DEFAULT_ACL= None
 DEFAULT_FILE_STORAGE='storages.backends.s3boto3.S3Boto3Storage'
 AWS_S3_REGION_NAME = 'us-east-2' #change to your region
 AWS_S3_SIGNATURE_VERSION = 's3v4'
+
+django_heroku.settings(locals())  # it will automatically set postgres related settings for django_project
